@@ -6,6 +6,4 @@ export const userLoggedIn = (user) => ({
   user,
 });
 
-export const login = (info) => (dispatch) => {
-  api.user.login(info).then((user) => dispatch(userLoggedIn(user)));
-};
+export const login = (info) => (dispatch) => api.user.login(info).then((user) => dispatch(userLoggedIn(user)));

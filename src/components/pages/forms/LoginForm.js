@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Validator from 'validator';
 import InlineError from '../messages/InlineError';
 import PropTypes from 'prop-types';
-
+/* eslint-disable*/
 export default class LoginForm extends Component {
     state = {
       data: {
@@ -23,7 +23,8 @@ export default class LoginForm extends Component {
       const errors = this.validate(this.state.data);
       this.setState({errors});
       if (Object.keys(errors).length === 0) {
-        this.props.submit(this.state.data);
+        this.setState({loading: true});
+        this.props.submit(this.state.data).catch(err => this.setState({ errors: err.response.data.errors, loading: false }));
       }
     }
 
@@ -34,9 +35,10 @@ export default class LoginForm extends Component {
       return errors;
     }
     render() {
-      const {data, errors} = this.state;
+      const {data, errors, loading} = this.state;
       return (
         <form onSubmit={this.onSubmit}>
+          {errors.global && <p>{errors.global}</p>}
           <label htmlFor="email">Email</label>
           <input type="email" id="email" name="email" placeholder="example@emal.com" value={data.email} onChange={this.onChange} />
           {errors.email && <InlineError text={errors.email}/>}
