@@ -1,5 +1,8 @@
 npm install eslint eslint-plugin-react eslint-plugin-import eslint-plugin-jsx-a11y eslint-config-google --save-dev
 
+1. Make it so the user can ask for another email confomation email
+2. Make the password Reset more secure  
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import ConfirmEmailMessage from './messages/ConfirmEmailMessage';
 
 class DashboardPage extends Component {
+  componentDidMount() {
+    console.log(this.props);
+  }
   render() {
     const {isConfirmed} = this.props;
     return (
