@@ -15,7 +15,7 @@ class ResettingPasswordPage extends Component {
         .catch(() => this.setState({loading: false, success: false}));
     }
 
-    submit = (data) => this.props.resetPassword(data).then(() => this.history.push('/login')); // eslint-disable-line
+    submit = (data) => this.props.resetPassword(data).then(() => this.props.history.push('/login')); // eslint-disable-line
 
     render() {
       const {loading, success} = this.state; // the value of token is undefined after destructuing fix
