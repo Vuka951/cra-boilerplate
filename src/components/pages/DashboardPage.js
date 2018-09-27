@@ -9,6 +9,7 @@ class DashboardPage extends Component {
     return (
       <div>
         {!isConfirmed && <ConfirmEmailMessage/>}
+        {isConfirmed && <div>Welcome Confimed</div>}
       </div>
     );
   }
